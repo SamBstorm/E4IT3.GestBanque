@@ -32,4 +32,45 @@ Console.WriteLine($"Le compte courant : {c1.Numero}\n" +
     $"du titulaire : {c1.Titulaire.Nom} {c1.Titulaire.Prenom}\n" +
     $"né le {c1.Titulaire.DateNaiss}\n" + 
     $"a comme solde {c1.Solde} € avec une ligne de credit de {c1.LigneDeCredit} €.");
-c1.Retrait(21_000);
+//c1.Retrait(21_000);
+
+Courant c2 = new Courant()
+{
+    Numero = "BE02",
+    LigneDeCredit = 0,
+    Titulaire = p1
+};
+c2.Depot(1_500);
+Console.WriteLine($"Le compte courant : {c2.Numero}\n" +
+    $"du titulaire : {c2.Titulaire.Nom} {c2.Titulaire.Prenom}\n" +
+    $"né le {c2.Titulaire.DateNaiss}\n" +
+    $"a comme solde {c2.Solde} € avec une ligne de credit de {c2.LigneDeCredit} €.");
+
+Courant c3 = new Courant()
+{
+    Numero = "BE03",
+    LigneDeCredit = 100,
+    Titulaire = p1
+};
+c3.Depot(2_500);
+Console.WriteLine($"Le compte courant : {c3.Numero}\n" +
+    $"du titulaire : {c3.Titulaire.Nom} {c3.Titulaire.Prenom}\n" +
+    $"né le {c3.Titulaire.DateNaiss}\n" +
+    $"a comme solde {c3.Solde} € avec une ligne de credit de {c3.LigneDeCredit} €.");
+
+Banque b1 = new Banque() { Nom = "AuBonBénéfice!"};
+b1.Ajouter(c1);
+b1.Ajouter(c2);
+b1.Ajouter(c3);
+
+Courant selected_account = b1["BE02"];
+if (selected_account != null)
+{
+    selected_account.Depot(15_000);
+}
+//b1["BE02"]?.Depot(15_000);
+
+Console.WriteLine($"Le compte courant : {c2.Numero}\n" +
+    $"du titulaire : {c2.Titulaire.Nom} {c2.Titulaire.Prenom}\n" +
+    $"né le {c2.Titulaire.DateNaiss}\n" +
+    $"a comme solde {c2.Solde} € avec une ligne de credit de {c2.LigneDeCredit} €.");
