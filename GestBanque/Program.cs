@@ -32,7 +32,7 @@ Console.WriteLine($"Le compte courant : {c1.Numero}\n" +
     $"du titulaire : {c1.Titulaire.Nom} {c1.Titulaire.Prenom}\n" +
     $"né le {c1.Titulaire.DateNaiss}\n" + 
     $"a comme solde {c1.Solde} € avec une ligne de credit de {c1.LigneDeCredit} €.");
-//c1.Retrait(21_000);
+c1.Retrait(20_200);
 
 Courant c2 = new Courant()
 {
@@ -74,3 +74,5 @@ Console.WriteLine($"Le compte courant : {c2.Numero}\n" +
     $"du titulaire : {c2.Titulaire.Nom} {c2.Titulaire.Prenom}\n" +
     $"né le {c2.Titulaire.DateNaiss}\n" +
     $"a comme solde {c2.Solde} € avec une ligne de credit de {c2.LigneDeCredit} €.");
+
+Console.WriteLine($"Le total des comptes de ma banque est de {c1 + c2 + c3} €.");

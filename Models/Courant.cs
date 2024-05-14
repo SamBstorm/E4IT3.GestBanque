@@ -36,4 +36,19 @@ public class Courant
 		if (montant > Solde + LigneDeCredit) return;		//Gestion des exceptions
 		Solde -= montant;
     }
+
+	public static double operator + (Courant left, Courant right)
+	{
+		double result = 0;
+		if (left.Solde > 0) result += left.Solde;
+		if (right.Solde > 0) result += right.Solde;
+		return result;
+	}
+
+	public static double operator + (double left, Courant right)
+	{
+		double result = left;
+		if (right.Solde > 0) result += right.Solde;
+		return result;
+	}
 }
